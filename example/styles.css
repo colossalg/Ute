@@ -1,0 +1,126 @@
+:root {
+    --bordered: 2px solid black;
+    --shadowed: 4px 2px 2px color(from black srgb r g b / 0.5);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+    background-color: color(from black srgb r g b / 0.05);
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border {
+    padding: 10px;
+    background-color: color(from lightblue srgb r g b / 0.25);
+    border: var(--bordered);
+    box-shadow: var(--shadowed);
+}
+
+.layout {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+        "title title"
+        "tool-bar sketch-pad";
+    gap: 10px;
+}
+
+.title {
+    grid-area: title;
+    text-align: center;
+}
+
+.tool-bar {
+    grid-area: tool-bar;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+
+    hr {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding: 0px;
+    }
+}
+
+.type-control {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 5px;
+
+    .type-button {
+        width: 100%;
+        padding: 10px;
+        background-color: color(from lightblue srgb r g b / 0.8);
+        border: var(--bordered);
+        box-shadow: var(--shadowed);
+        font-size: medium;
+        font-weight: bold;
+        
+        &.active {
+            background-color: color(from coral srgb r g b / 0.8);
+        }
+    }
+}
+
+.width-control {
+    min-width: 180px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    button {
+        min-width: 30px;
+        min-height: 30px;
+        margin-left: 2px;
+        border: var(--bordered);
+        box-shadow: var(--shadowed);
+        font-size: larger;
+        font-weight: bold;
+    }
+}
+
+.color-control {
+    min-width: 180px;
+
+    .row {
+        margin-bottom: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .color-swatch {
+        width: 30px;
+        height: 30px;
+        border: var(--bordered);
+        box-shadow: var(--shadowed);
+    }
+}
+
+.sketch-pad {
+    grid-area: sketch-pad;
+    background-color: white;
+    border: var(--bordered);
+    box-shadow: var(--shadowed);
+}
