@@ -1,5 +1,5 @@
-import van from "../ute.js";
-const { button, canvas, div, h1, h2, hr } = van.tags;
+import ute from "../ute.js";
+const { button, canvas, div, h1, h2, hr } = ute.tags;
 
 import { ShapeTypes, createShape } from "./shapes.js";
 
@@ -101,8 +101,8 @@ const ToolBar = (currTool) => {
 };
 
 const SketchPad = ({ width, height, startShape }) => {
-    const prevShapes = van.state([]);
-    const currShape = van.state(null);
+    const prevShapes = ute.state([]);
+    const currShape = ute.state(null);
 
     const handleMouseDown = (e) => { currShape.val = startShape(e.offsetX, e.offsetY) };
     const handleMouseMove = (e) => {
@@ -134,9 +134,9 @@ const SketchPad = ({ width, height, startShape }) => {
 
 const App = () => {
     const currTool = {
-        type: van.state(ShapeTypes.line),
-        width: van.state(1),
-        color: van.state("black"),
+        type: ute.state(ShapeTypes.line),
+        width: ute.state(1),
+        color: ute.state("black"),
     };
 
     const startShape = (x, y) => {
@@ -167,4 +167,4 @@ const App = () => {
 };
 
 const root = document.querySelector("#root");
-van.add(root, App());
+ute.add(root, App());
